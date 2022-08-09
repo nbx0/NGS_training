@@ -1,5 +1,5 @@
 # Influenza genome assembly
-## [Illumina](./influenza.md#illumina) or [Oxford Nanopore](./influenza.md#oxford-nanopore-technologies--minion--gridion)
+## [Illumina](./influenza.md#illumina) or [Oxford Nanopore](./influenza.md#oxford-nanopore-technologies)
 
 ## Illumina
 ## 1. Navigate to the working directory with demultiplexed fastqs
@@ -11,7 +11,7 @@ cd /mnt/c/Users/$(whoami)/Desktop/data
 for i in $(ls *fastq.gz |sed "s/_R[12].\+//" | sort |uniq);
     do docker run \
         --rm \
-        -v $PWD/:/data \
+        -v $PWD:/data \
         public.ecr.aws/n3z8t4o2/pipeline/irma:1.0.2 \
         IRMA FLU ${i}* $i > IRMA_${i}.stdout 2> IRMA_${i}.stderr
 done
@@ -49,14 +49,15 @@ done
 ```bash
 # The next commands will make a temporary input file
 f=$(mktemp --suffix .fasta)
-cat amended_consensus*fasta >> $f
+cat amended_consensus/*fasta >> $f
+curl https://raw.githubusercontent.com/nbx0/NGS_training/master/lib/DAIS-Ribosome_refs/FLU_A_all_genes.fasta >> $f
 
-
+# The next command will run DAIS-ribosome
 docker run \
     --rm \
-    -v /mnt/y/adhoc/igv_examples/:/data \
+    -v $PWD:/data \
     public.ecr.aws/n3z8t4o2/dais-ribosome:0.1 ribosome \
     --module INFLUENZA $f
 ```
 
-## Oxford Nanopore Technologies ( MinION | GridION )
+## Oxford Nanopore Technologies
