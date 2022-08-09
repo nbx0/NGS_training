@@ -33,21 +33,36 @@ You can get a full linux environment using Windows Subsystem for Linux, or WSL. 
 #
 
 ## How to use WSL2
-### Option 1: "Command Prompt" 
-Click the Windows Logo in the bottom left corner of the screen and type "command prompt" 
+1. Click the Windows Logo in the bottom left corner of the screen and type "command prompt" 
 ![alt text](./images/commandprompt_open.png) 
 
-### Option 2: "VS Code"
-VS Code is an Integrated Development Environment (IDE) that you can use for editing text documents, writing code and so much more. 
+2. Type "wsl" and hit Enter: 
+    ```.net
+    C:\Users\username> wsl
+    ``` 
+    which will change your command prompt to:
+    ![alt text](./images/commandprompt_wsl.png) but with your username@computername:usename$
 
-1. [Download VS Code](https://code.visualstudio.com/)
+## Set up your /data directory on your desktop and navigate to it with WSL2
+1. Make a data directory somewhere, ie. right-click the desktop:
+    ![alt text](./images/desktop_mkdir.png)
 
-2. [Windows directions](https://code.visualstudio.com/blogs/2019/09/03/wsl2)
-
-3. Open VS Code and install the WSL-remote by clicking on the 'boxes' logo in the left tool bar, type "wsl" and select "Remote-WSL" and install it.
-![alt text](./images/vscode_wsl2remote.png)
-4. 
+    ![alt text](./images/desktop_data.png)
+2. Navigate to your data directory by copying and pasting the following command into Command Prompt
+    ```bash
+        cd /mnt/c/Users/$(whoami)/Desktop/data # This assumes that when you set up WSL2 you made your USERNAME the same name as you use to log in to Windows. If not, replace "$(whoami)" with that username.
+    ```
 #
 
+## [Install Docker](https://www.docker.com/products/docker-desktop/)
+Docker allows you to run software inside an isolated "container image" on your computer with all of that application's needed dependencies. Make sure to install the version for your operating system. Here we are assuming [Windows](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=header).
+#
 
+## [Install Bio Edit](https://bioedit.software.informer.com/)
+We will use BioEdit to look at consensus sequences.
+#
 
+## Click the links below for directions to analyze your fastqs
+## [Influenza](./docs/influenza.md)
+or
+## [SARS-CoV-2 spike](./docs/sc2spike.md)
