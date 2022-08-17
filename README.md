@@ -9,7 +9,7 @@ D --> E[SeqSender]
 E --> F[(GISAID)]
 E --> G[(NCBI)]
 
-style A fill:#153b60
+style A fill:#153b60,color:#FFFFFF,stroke:#333,stroke-width:5px
 style B fill:#89b342,color:#000000,stroke:#333,stroke-width:5px
 style C fill:#89b342,color:#000000,stroke:#333,stroke-width:5px
 style D fill:#06a4d5,color:#000000,stroke-width:10px
