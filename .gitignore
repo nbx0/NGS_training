@@ -971,7 +971,7 @@ lib/test_data/flu/3025629447_ZZYV190H_v1_Bvic_PCR_S59/tables/B_PB2-insertions.tx
 lib/test_data/flu/3025629447_ZZYV190H_v1_Bvic_PCR_S59/tables/B_PB2-pairingStats.txt
 lib/test_data/flu/3025629447_ZZYV190H_v1_Bvic_PCR_S59/tables/B_PB2-variants.txt
 lib/test_data/flu/3025629447_ZZYV190H_v1_Bvic_PCR_S59/tables/READ_COUNTS.txt
-3001584404_ZZYV1910_v1_H3_PCR_S66
-3025629447_ZZYV190H_v1_Bvic_PCR_S59
+3001584404_ZZYV1910_v1_H3_PCR_S66/
+3025629447_ZZYV190H_v1_Bvic_PCR_S59/
 *stdout
 *stderr
