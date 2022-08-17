@@ -22,7 +22,7 @@ for i in $(ls *fastq.gz |sed "s/_R[12].\+//" | sort |uniq);
     do docker run \
         --rm \
         -v $PWD:/data \
-        public.ecr.aws/n3z8t4o2/pipeline/irma:1.0.2 \
+        public.ecr.aws/n3z8t4o2/irma:1.0.2p3 \
         IRMA CoV-spike ${i}* $i > IRMA_${i}.stdout 2> IRMA_${i}.stderr
 done
 ```
