@@ -2,25 +2,35 @@
 ## [Illumina](./influenza.md#illumina) or [Oxford Nanopore](./influenza.md#oxford-nanopore-technologies)
 
 ## Illumina
-## 1. Navigate to the working directory with demultiplexed fastqs
+
+## 1. Mount a directory on your computer to where the sequencing data from the instrument is located
+Example: your data is located on a server and mapped to drive "X:"
+```bash
+sudo mount -t drvfs X: /mnt/c/Users/$(whoami)/Desktop/data
+```
+
+## 2. Navigate to the working directory with demultiplexed fastqs
 ```bash
 cd /mnt/c/Users/$(whoami)/Desktop/data
 ```
-## 2. Launch IRMA
+## 3. Launch IRMA
 ```bash
 for i in $(ls *fastq.gz |sed "s/_R[12].\+//" | sort |uniq);
-    do docker run \
+    do echo "Running IRMA on sample ${i}";
+        docker run \
         --rm \
         -v $PWD:/data \
         public.ecr.aws/n3z8t4o2/irma:1.0.2p3 \
-        IRMA FLU ${i}* $i > IRMA_${i}.stdout 2> IRMA_${i}.stderr
+        IRMA FLU ${i}* $i > IRMA_${i}.stdout 2> IRMA_${i}.stderr && \
+        echo "IRMA finished on sample ${i}"
 done
 ```
-## 3. View coverage
+## 4. View coverage
+This will open up 8 images per sample, so may take a few minutes.
 ```bash
 for i in  */figures/*coverage*; do wslview $i; done
 ```
-## 3. Initialize a bash array of FLU segment names : numbers
+## 5. Initialize a bash array of FLU segment names : numbers
 ```bash
 declare -A IAV
 IAV['PB2']=1
@@ -42,7 +52,7 @@ IAV[7]='M'
 IAV[8]='NS'
 ```
 
-## 4. Concatenate Flu sequences together by gene
+## 6. Concatenate Flu sequences together by gene
 ```bash
 for i in 1 2 3 4 5 6 7 8; 
     do cat */amended_consensus/*${i}.fa > amended_consensus_${IAV[$i]}.fasta
@@ -66,8 +76,8 @@ docker run \
     --module INFLUENZA $input $output
 
 # The next command will sort the ORFs into seperate fastas to view in BioEdit.
-for i in $(cut --output-delimiter=".+" -f 3,4 20220809.seq |sort |uniq)
-    do grep -E "${i}\s" 20220809.seq | sed 's/^/>/' |cut -f 1,4,6| sed 's/\t/_/' |tr '\t' '\n' > $(echo $i |cut -d '+' -f 2)_ORF.fasta && wslview $(echo $i |cut -d '+' -f 2)_ORF.fasta
+for i in $(cut --output-delimiter=".+" -f 3,4 ${input}_ORF.seq |sort |uniq)
+    do grep -E "${i}\s" ${input}_ORF.seq | sed 's/^/>/' |cut -f 1,4,6| sed 's/\t/_/' |tr '\t' '\n' > $(echo $i |cut -d '+' -f 2)_ORF.fasta && wslview $(echo $i |cut -d '+' -f 2)_ORF.fasta
 done
 ```
 ## 6. Review sequences in BioEdit and assure there are no stop codons (X) inside reading frames
