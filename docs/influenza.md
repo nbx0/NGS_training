@@ -4,14 +4,15 @@
 ## Illumina
 
 ## 1. Mount a directory on your computer to where the sequencing data from the instrument is located
-Example: your data is located on a server and mapped to drive "X:"
+Example: your data is located on a server and mapped to drive "W:". This needs to be run in PowerShell, NOT as administrator. 
 ```bash
-sudo mount -t drvfs X: /mnt/c/Users/$(whoami)/Desktop/data
+un=$( wslpath "$(wslvar USERPROFILE)" |cut -d '/' -f 5)
+sudo mount -t drvfs W: /mnt/c/Users/${un}/Desktop/data
 ```
 
 ## 2. Navigate to the working directory with demultiplexed fastqs
 ```bash
-cd /mnt/c/Users/$(whoami)/Desktop/data
+cd /mnt/c/Users/${un}/Desktop/data
 ```
 ## 3. Launch IRMA
 ```bash
@@ -21,7 +22,7 @@ for i in $(ls *fastq.gz |sed "s/_R[12].\+//" | sort |uniq);
         --rm \
         -v $PWD:/data \
         public.ecr.aws/n3z8t4o2/irma:1.0.2p3 \
-        IRMA FLU ${i}* $i > IRMA_${i}.stdout 2> IRMA_${i}.stderr && \
+        IRMA FLU ${i}* $i tee -a IRMA_${i}.stdout && \
         echo "IRMA finished on sample ${i}"
 done
 ```
@@ -76,8 +77,8 @@ docker run \
     --module INFLUENZA $input $output
 
 # The next command will sort the ORFs into seperate fastas to view in BioEdit.
-for i in $(cut --output-delimiter=".+" -f 3,4 ${input}_ORF.seq |sort |uniq)
-    do grep -E "${i}\s" ${input}_ORF.seq | sed 's/^/>/' |cut -f 1,4,6| sed 's/\t/_/' |tr '\t' '\n' > $(echo $i |cut -d '+' -f 2)_ORF.fasta && wslview $(echo $i |cut -d '+' -f 2)_ORF.fasta
+for i in $(cut --output-delimiter=".+" -f 3,4 ${today}_ORF.seq |sort |uniq)
+    do grep -E "${i}\s" ${today}_ORF.seq | sed 's/^/>/' |cut -f 1,4,6| sed 's/\t/_/' |tr '\t' '\n' > $(echo $i |cut -d '+' -f 2)_ORF.fasta && wslview $(echo $i |cut -d '+' -f 2)_ORF.fasta
 done
 ```
 ## 6. Review sequences in BioEdit and assure there are no stop codons (X) inside reading frames
