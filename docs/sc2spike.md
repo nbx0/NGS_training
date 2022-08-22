@@ -1,68 +1,56 @@
 # SARS-CoV-2 spike-gene assembly with EDGE EC-19
 ## Expects demultiplexed reads from Oxford Nanopore Technologies sequencer
 #
+
+# Computer setup
 ## 1. Install conda
-
+Open up Powershell and type:
+```bash
+wsl
+```
+You are now in a linux environment.
+```bash
+ curl  -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+ bash Miniconda3-latest-Linux-x86_64.sh -b -u
+alias conda=/home/$(whoami)/miniconda3/bin/conda
+conda install -c conda-forge mamba
+alias mamba=/home/$(whoami)/miniconda3/bin/mamba
+```
 ## 2. Clone spike-snake repository
-
+```bash
+git clone https://github.com/nbx0/SC2-spike-seq.git
+```
 ## 3. Build conda environment
-
+```bash
+mamba env create --file ./spike-snake/envs/snakemake_environment.yml -p spikeseq
+source ~/miniconda3/bin/activate spikeseq
+```
 ## 4. Build samplesheet
+A simple comma-separated file needs to be generated with your sample names and sequencing run metadata. Create a file with two columns:
+| sample name | barcode |
+|--|--|
+| sample 1 | barcode01 |
+| sample 2 | barcode02 |
+| . . . | . . . |
+| sample N | barcodeNN |
+**It is critical to 0-pad numerals 1-9, ie 01, 02, 03...**
+Which when saved as a file named _samplesheet.csv_ the textfile should look like:
+```bash
+sample name,barcode
+sample1,barcode01
+sample2,barcode02
+```
 
 ## 5. Run spike-seq snakemake process
-
-
-## 1. Navigate to the working directory with demultiplexed fastqs
+**Make sure that Docker is running. You likely need to open the Docker application from the bottom right Windows search box**
 ```bash
-cd /mnt/c/Users/$(whoami)/Desktop/data
-```
-## 2. Launch IRMA
-```bash
-for i in $(ls *fastq.gz |sed "s/_R[12].\+//" | sort |uniq);
-    do docker run \
-        --rm \
-        -v $PWD:/data \
-        public.ecr.aws/n3z8t4o2/irma:1.0.2p3 \
-        IRMA CoV-spike ${i}* $i > IRMA_${i}.stdout 2> IRMA_${i}.stderr
-done
-```
-## 3. View coverage
-```bash
-for i in  */figures/*coverage*; do wslview $i; done
-```
-## 4. Concatenate all barcode consensus sequences together by gene
-```bash 
-cat */amended_consensus/*${i}.fa > amended_consensus_${IAV[$i]}.fasta
+# The next command creates a configuration file required by snakemake
+python scripts/config_create.py <path/to/samplesheet.csv> <run_id> <barcode_kit>
+# The next command runs primer trimming and IRMA.
+
 ```
 
-## 5. Annotate genes into open reading frames (ORFs) with DAIS-Ribosome
-```bash
-# The next commands will create the input file
-today=$(date "+%Y%m%d")
-input=${today}_consensus.fasta
-output="${today}_ORF.seq ${today}_ORF.ins ${today}_ORF.del"
-cat amended_consensus/*fasta >> $input
-curl https://raw.githubusercontent.com/nbx0/NGS_training/master/lib/DAIS-Ribosome_refs/A_H1_H3_refs.fasta >> $input
-
-# The next command will run DAIS-ribosome
-docker run \
-    --rm \
-    -v $PWD:/data \
-    public.ecr.aws/n3z8t4o2/dais-ribosome:0.1 ribosome \
-    --module INFLUENZA $input $output
-
-# The next command will sort the ORFs into seperate fastas to view in BioEdit.
-for i in $(cut --output-delimiter=".+" -f 3,4 20220809.seq |sort |uniq)
-    do grep -E "${i}\s" 20220809.seq | sed 's/^/>/' |cut -f 1,4,6| sed 's/\t/_/' |tr '\t' '\n' > $(echo $i |cut -d '+' -f 2)_ORF.fasta && wslview $(echo $i |cut -d '+' -f 2)_ORF.fasta
-done
-```
-## 6. Review sequences in BioEdit and assure there are no stop codons (X) inside reading frames
-
-## 7. Your sequences are ready for
+## 6. Your sequences are ready for
 - ### [Public Repository Submission](https://github.com/CDCgov/seqsender)
 - ### [Nextclade](https://clades.nextstrain.org/)
  
-
-#
-
-## Oxford Nanopore Technologies
