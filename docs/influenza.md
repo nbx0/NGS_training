@@ -14,6 +14,7 @@ sudo mount -t drvfs W: /mnt/c/Users/${un}/Desktop/data
 ```bash
 cd /mnt/c/Users/${un}/Desktop/data
 ```
+
 ## 3. Launch IRMA
 ```bash
 for i in $(ls *fastq.gz |sed "s/_R[12].\+//" | sort |uniq);
@@ -22,12 +23,8 @@ for i in $(ls *fastq.gz |sed "s/_R[12].\+//" | sort |uniq);
         --rm \
         -v $PWD:/data \
         public.ecr.aws/n3z8t4o2/irma:1.0.2p3 \
-<<<<<<< HEAD
-        IRMA FLU ${i}* $i tee -a IRMA_${i}.stdout && \
+        IRMA FLU ${i}* $i | tee -a IRMA_${i}.stdout && \
         echo "IRMA finished on sample ${i}"
-=======
-        IRMA FLU ${i}* $i > IRMA_${i}.stdout 2> IRMA_${i}.stderr
->>>>>>> 3c38b867651ac8f9d791c14b4bf43e4c54a669d3
 done
 ```
 ## 4. View coverage
