@@ -4,6 +4,8 @@
 
 # Computer setup
 ## 1. Install conda
+**If you have already installed conda and created the pipeline environment, skip to step 4**
+
 Open up Powershell and type:
 ```bash
 wsl
@@ -23,9 +25,13 @@ git clone https://github.com/nbx0/SC2-spike-seq.git
 ## 3. Build conda environment
 ```bash
 mamba env create --file ./spike-snake/envs/snakemake_environment.yml -p spikeseq
+
+```
+## 4. Activate the conda environment
+```bash
 source ~/miniconda3/bin/activate spikeseq
 ```
-## 4. Build samplesheet
+## 5. Build samplesheet
 A simple comma-separated file needs to be generated with your sample names and sequencing run metadata. Create a file with two columns:
 | sample name | barcode |
 |--|--|
@@ -41,7 +47,7 @@ sample1,barcode01
 sample2,barcode02
 ```
 
-## 5. Run spike-seq snakemake process
+## 6. Run spike-seq snakemake process
 **Make sure that Docker is running. You likely need to open the Docker application from the bottom right Windows search box**
 ```bash
 # The next command creates a configuration file required by snakemake
@@ -50,7 +56,7 @@ python scripts/config_create.py <path/to/samplesheet.csv> <run_id> <barcode_kit>
 
 ```
 
-## 6. Your sequences are ready for
+## 7. Your sequences are ready for
 - ### [Public Repository Submission](https://github.com/CDCgov/seqsender)
 - ### [Nextclade](https://clades.nextstrain.org/)
  
