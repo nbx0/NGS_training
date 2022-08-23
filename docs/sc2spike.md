@@ -6,6 +6,11 @@
 ## 1. Install conda
 **If you have already installed conda and created the pipeline environment, skip to step 4**
 
+_If at any time a command returns a "unable to resolve host" error message the following command should fix:_
+```bash
+echo nameserver 8.8.8.8 |sudo tee /etc/resolv.conf
+```
+
 Open up Powershell and type:
 ```bash
 wsl
