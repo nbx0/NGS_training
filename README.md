@@ -34,6 +34,7 @@ You can get a full linux environment using Windows Subsystem for Linux, or WSL. 
 
 ## How to use WSL2
 1. Click the Windows Logo in the bottom left corner of the screen and type "powershell" 
+
 ![alt text](./images/powershell_open.png) 
 
 2. Type "wsl" and hit Enter: 
@@ -63,6 +64,6 @@ We will use BioEdit to look at consensus sequences.
 #
 
 ## Click the links below for directions to analyze your fastqs
-## [Influenza](./docs/influenza.md)
-or
-## [SARS-CoV-2 spike](./docs/sc2spike.md)
+## [Code installation](./docs/code_installation.md)
+and then
+## [Genome assembly](./docs/genome_assembly.md)
