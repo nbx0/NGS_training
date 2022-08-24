@@ -33,15 +33,15 @@ You can get a full linux environment using Windows Subsystem for Linux, or WSL. 
 #
 
 ## How to use WSL2
-1. Click the Windows Logo in the bottom left corner of the screen and type "command prompt" 
-![alt text](./images/commandprompt_open.png) 
+1. Click the Windows Logo in the bottom left corner of the screen and type "powershell" 
+![alt text](./images/powershell_open.png) 
 
 2. Type "wsl" and hit Enter: 
     ```.net
     C:\Users\username> wsl
     ``` 
-    which will change your command prompt to:
-    ![alt text](./images/commandprompt_wsl.png) but with your username@computername:usename$
+    which will change your prompt to:
+    ![alt text](./images/commandprompt_wsl.png) but with your username@computername:username$
 
 ## Set up your /data directory on your desktop and navigate to it with WSL2
 1. Make a data directory somewhere, ie. right-click the desktop:
