@@ -14,11 +14,12 @@ echo nameserver 8.8.8.8 |sudo tee /etc/resolv.conf
 ## 2. Install miniconda
 THe next commands will install [miniconda](https://docs.conda.io/en/latest/miniconda.html):
 ```bash
+un=$( wslpath "$(wslvar USERPROFILE)" |cut -d '/' -f 5)
  curl  -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
  bash Miniconda3-latest-Linux-x86_64.sh -b -u
-alias conda=/home/$(whoami)/miniconda3/bin/conda
+alias conda=/home/$(un)/miniconda3/bin/conda
 conda install -c conda-forge mamba
-alias mamba=/home/$(whoami)/miniconda3/bin/mamba
+alias mamba=/home/$(un)/miniconda3/bin/mamba
 ```
 ## 3. Clone the spike-snake repository
 ```bash
