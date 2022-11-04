@@ -1,8 +1,15 @@
 # Protocol for Influenza genome and SARS-CoV-2 spike-only assembly and curation
 ### Start with demultiplexed sequencing reads from an Illumina or Oxford Nanopore Technologies sequencer and finish with high quality genomes ready for submission to public repositories!
 <br/><br/>
-```mermaid
-flowchart LR
+
+
+<html lang="en">
+   <head>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.0.0/mermaid.min.js"></script>
+    </head>
+	 
+<body>
+ <pre><code class="language-mermaid">flowchart LR
 
 title[<font size=6>Process Flowchart Diagram]
 title --> B
@@ -35,9 +42,9 @@ style G fill:#e3e3e2,color:#000000,stroke:#333,stroke-width:5px
 style NU fill:#06a4d5,color:#000000,stroke-width:10px
 style GU fill:#06a4d5,color:#000000,stroke-width:10px
 style SPY fill:#608c5a,color:#FFFFFF,stroke:#353,stroke-width:5px
-```
-```mermaid
-flowchart LR
+</code></pre>
+
+<div class="mermaid">flowchart LR
 subgraph KEY[<font size=5>Key]
 I[<font size=4>Input Data]
 U{<font size=4>User\nInteraction}
@@ -50,7 +57,24 @@ style SC fill:#89b342,color:#000000,stroke:#333,stroke-width:5px
 style SG fill:#608c5a,color:#FFFFFF,stroke:#353,stroke-width:5px
 style U fill:#06a4d5,color:#000000,stroke-width:10px
 style P fill:#e3e3e2,color:#000000,stroke:#333,stroke-width:5px
-```
+
+</div>
+
+</body>
+<script>
+var config = {
+    startOnLoad:true,
+    theme: 'forest',
+    flowchart:{
+            useMaxWidth:false,
+            htmlLabels:true
+        }
+};
+mermaid.initialize(config);
+window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+</script>
+
+</html>
 #
 
 ## Computer requirements
