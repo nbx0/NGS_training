@@ -1,9 +1,11 @@
 # Protocol for Influenza genome and SARS-CoV-2 spike-only assembly and curation
 ### Start with demultiplexed sequencing reads from an Illumina or Oxford Nanopore Technologies sequencer and finish with high quality genomes ready for submission to public repositories!
-<br/><br/>
+
 #
+
 ![alt text](./images/mermaid_flow.png)
 ![alt text](./images/mermaid_key.png)
+
 #
 
 ## Computer requirements
@@ -14,6 +16,8 @@
     - *This software has not yet been tested on Apple's M-chip based OS
 #
 
+<a href="http://example.com/" target="_blank">example</a>
+
 ## How to install linux on a Windows 10/11 computer
 You can get a full linux environment using Windows Subsystem for Linux, or WSL. The second version of WSL is WSL2 and is the recommended version to use.
 
@@ -21,6 +25,7 @@ You can get a full linux environment using Windows Subsystem for Linux, or WSL. 
   - Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11 is required.
   - You can update to the latest Windows version by selecting Start > Settings > Windows Update > Check for updates.
 - [ ] [Run powershell **as administrator**](./images/powershell_open.png)
+- [ ] <a href="./images/powershell_open.png" target="_blank">Run powershell **as administrator**</a>
 - [ ] Run the following command in Powershell:
     ```bash
     wsl --install
