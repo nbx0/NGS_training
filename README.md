@@ -19,23 +19,23 @@
 ## How to install linux on a Windows 10/11 computer
 You can get a full linux environment using Windows Subsystem for Linux, or WSL. The second version of WSL is WSL2 and is the recommended version to use.
 
-- [ ] Check your Windows version and build number, select Windows logo key + R, type winver, select OK.
-  - Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11 is required.
-  - You can update to the latest Windows version by selecting Start > Settings > Windows Update > Check for updates.
-- [ ] <a href="./images/powershell_open.png" target="_blank">Run powershell **as administrator**</a>
-- [ ] Run the following command in Powershell:
+1. Check your Windows version and build number, select Windows logo key + R, type winver, select OK.
+2. Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11 is required.
+   - You can update to the latest Windows version by selecting Start > Settings > Windows Update > Check for updates.
+3. <a href="./images/powershell_open.png" target="_blank">Run powershell **as administrator**</a>
+4. Run the following command in Powershell:
     ```bash
     wsl --install
     ```
-- [ ] Restart your computer
-- [ ] Reopen Powershell and enter the following commands:
+5. Restart your computer
+6. Reopen Powershell and enter the following commands:
     ```bash
     wsl --set-default-version 2
     wsl --install -d Ubuntu-18.04
     ```
     Following successful installation, an Ubuntu terminal should pop up that looks like:
     ![alt text](./images/ubuntu_setub_1.png)
-- [ ] Enter a username that will be exclusive for WSL. Press `Enter` and then enter a password. A "prompt" will then appear in the screen like:
+7. Enter a username that will be exclusive for WSL. Press `Enter` and then enter a password. A "prompt" will then appear in the screen like:
     ![alt text](./images/commandprompt_wsl.png) with `nbx0` replaced by your entered username and `L349232` replaced with your computer's name.
 <br/><br/>
 <br/><br/>
@@ -44,10 +44,10 @@ Further details can be found on Microsoft's website here: [https://docs.microsof
 <br/><br/>
 
 ## Map network drive to be able to use Window's File Explorer to see folders and files inside WSL
-- [ ] Open <a href="./images/file_explorer.png" target="_blank">File Explorer</a>
-- [ ] Right click <a href="./images/map_drive_1.png" target="_blank">This PC and click Map network drive</a>
-- [ ] Enter `\\wsl$` into Folder: <a href="./images/map_drive_2.png" target="_blank">and click Browse</a>
-- [ ] Click on `wsl$` to unfold directories, select `Ubuntu-18.04` <a href="./images/map_drive_3.png" target="_blank">and click OK</a> and then `Finish`. You should now see your WSL "drive" available in `File Explorer`:
+1. Open <a href="./images/file_explorer.png" target="_blank">File Explorer</a>
+2. Right click <a href="./images/map_drive_1.png" target="_blank">This PC and click Map network drive</a>
+3. Enter `\\wsl$` into Folder: <a href="./images/map_drive_2.png" target="_blank">and click Browse</a>
+4. Click on `wsl$` to unfold directories, select `Ubuntu-18.04` <a href="./images/map_drive_3.png" target="_blank">and click OK</a> and then `Finish`. You should now see your WSL "drive" available in `File Explorer`:
     ![alt text](./images/map_drive_4.png)
     
 
