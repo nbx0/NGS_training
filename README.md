@@ -47,18 +47,22 @@ Further details can be found on Microsoft's website here: [https://docs.microsof
 - [ ] Open <a href="./images/file_explorer.png" target="_blank">File Explorer</a>
 - [ ] Right click <a href="./images/map_drive_1.png" target="_blank">This PC and click Map network drive</a>
 - [ ] Enter `\\wsl$` into Folder: <a href="./images/map_drive_2.png" target="_blank">and click Browse</a>
-- [ ] []()
 - [ ] Click on `wsl$` to unfold directories, select `Ubuntu-18.04` <a href="./images/map_drive_3.png" target="_blank">and click OK</a> and then `Finish`. You should now see your WSL "drive" available in `File Explorer`:
     ![alt text](./images/map_drive_4.png)
     
 
 
 ## [Install Docker](https://www.docker.com/products/docker-desktop/)
-Docker allows you to run software inside an isolated "container image" on your computer with all of that application's needed dependencies. Make sure to install the version for your operating system. Download for [Windows](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=header) or [Mac-Intel](https://desktop.docker.com/mac/main/amd64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module) or [Mac-AppleChip](https://desktop.docker.com/mac/main/arm64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module) or [Linux](https://docs.docker.com/desktop/linux/install/).
+Docker allows you to run software inside an isolated "container image" on your computer with all of that application's needed dependencies. Make sure to install the version for your operating system.
+- [Windows](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=header)
+- [Mac-Intel](https://desktop.docker.com/mac/main/amd64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module)
+- [Mac-AppleChip](https://desktop.docker.com/mac/main/arm64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module)
+- [Linux](https://docs.docker.com/desktop/linux/install/).
 
 
 ## Install a sequence viewer
-[Windows Bio Edit](https://bioedit.software.informer.com/) or [Mac Aliview](https://ormbunkar.se/aliview/#DOWNLOAD)
+- [Windows Bio Edit](https://bioedit.software.informer.com/)
+- [Mac Aliview](https://ormbunkar.se/aliview/#DOWNLOAD)
 
 
 ## Instructions for running IRMA-SPY coming soon!
