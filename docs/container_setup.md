@@ -1,4 +1,5 @@
-# IRMA-SPY Container Setup
+## IRMA-SPY Container Setup
+<hr>
 IRMA-Spy relies on four Docker **_containers_** to run, each of which must be installed using the `docker pull` command inside Linux or Mac Terminal to download the docker **_images_** from the Quay.io repository (IRMA and DAIS-Ribosome are presently stored in AWS's ECR). These **_images_** are then built into runnable **_containers_** with the `docker run` command.
 <br/><br/>
 If using a Windows PC, you should have already installed WSL2, Docker Desktop, **and** Docker CLI inside WSL2. If you have not, [please return to those instructions.](../README.md#computer-requirements)
@@ -44,5 +45,5 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
     docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data -v /var/run/docker.sock:/var/run/docker.sock -d -p 8050:8050 --name irma-spy quay.io/nbx0_cdc/irma-spy:v1.0.0
     ```
 
-You are not ready to run IRMA-SPY! You can open it from `Docker Desktop` by clicking on the `Containers` tab on the left sidebar and clicking the icon of the box with the arrow pointing to the top left. This will open IRMA-SPY into your default internet browser.
+You are now ready to run IRMA-SPY! You can open it from `Docker Desktop` by clicking on the `Containers` tab on the left sidebar and clicking the icon of the box with the arrow pointing to the top left. This will open IRMA-SPY into your default internet browser.
 ![alt text](../images/dockerdesktop_launch_irmaspy.png)
