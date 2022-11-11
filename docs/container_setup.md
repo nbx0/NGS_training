@@ -20,7 +20,7 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
     ```
 5. Pull the container for IRMA-SPY
     ```bash
-    docker pull quay.io/nbx0_cdc/irma-spy:v1.0.0
+    docker pull quay.io/nbx0_cdc/irma-spy:v1.0.1
     ```
 6. Create a folder inside Ubuntu that will store your sequencing runs' data.
     ```bash
