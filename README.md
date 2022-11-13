@@ -51,7 +51,7 @@ You can get a full linux environment using Windows Subsystem for Linux, or WSL. 
     ```
     Following successful installation, an Ubuntu terminal should pop up that looks like:
     ![alt text](./images/ubuntu_setub_1.png)
-7. Enter a username that will be exclusive for WSL. Press `Enter` and then enter a password. A "prompt" will then appear in the screen like:
+7. Enter a username that will be exclusive for WSL. Press `Enter` and then enter a password. **_It is very important_**, _to choose a memorable password. If you forget your password you will need to reinstall Ubuntu_. A "prompt" will then appear in the screen like:
     ![alt text](./images/commandprompt_wsl.png) with `nbx0` replaced by your entered username and `L349232` replaced with your computer's name.
 8. Restart your computer.
 
@@ -198,6 +198,5 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
 
 You are now ready to run IRMA-SPY! You can open it from `Docker Desktop` by clicking on the `Containers` tab on the left sidebar and clicking the icon of the box with the arrow pointing to the top left. This will open IRMA-SPY into your default internet browser.
 ![alt text](./images/dockerdesktop_launch_irmaspy.png)
-
 
 [Return to Contents](#contents)
