@@ -5,6 +5,17 @@
 ### Start with demultiplexed sequencing reads from an Illumina or Oxford Nanopore Technologies sequencer and finish with high quality genomes ready for submission to public repositories!
 <hr>
 
+## Contents
+1. [Computer requirements](#computer-requirements)
+2. [Installing Linux on Windows](#how-to-install-linux-on-a-windows-1011-computer)
+3. [Map Linux folders to Windows folders](#map-network-drive-to-be-able-to-use-windows-file-explorer-to-see-folders-and-files-inside-wsl)
+4. [Install Docker Desktop](#install-docker-desktop)
+5. [Install Docker for Linux](#install-docker-cli-command-line-interface-in-wsl2)
+6. [Install a sequence viewer](#install-a-sequence-viewer)
+7. [Install IRMA-SPY](#instructions-for-running-irma-spy)
+
+<hr>
+<hr>
 
 ![alt text](./images/mermaid_flow.png)
 ![alt text](./images/mermaid_key.png)
@@ -19,6 +30,7 @@
     - *This software has not yet been tested on Apple's M-chip based OS
     - If you are using a Mac, [skip to installing Docker](#install-docker-desktophttpswwwdockercomproductsdocker-desktop)
 
+[Return to Contents](#contents)
 
 ## How to install linux on a Windows 10/11 computer
 You can get a full linux environment using Windows Subsystem for Linux, or WSL. The second version of WSL is WSL2 and is the recommended version to use.
@@ -48,6 +60,9 @@ You can get a full linux environment using Windows Subsystem for Linux, or WSL. 
 Further details can be found on Microsoft's website here: [https://docs.microsoft.com/en-us/windows/wsl/install](https://docs.microsoft.com/en-us/windows/wsl/install)
 <br/><br/>
 
+
+[Return to Contents](#contents)
+
 ## Map network drive to be able to use Window's File Explorer to see folders and files inside WSL
 1. Open <a href="./images/file_explorer.png" target="_blank">File Explorer</a>
     - _If you have a Windows 11 OS, WSL is likely automatically mapped and visible in the left hand sidebar as "Ubuntu"_
@@ -57,7 +72,7 @@ Further details can be found on Microsoft's website here: [https://docs.microsof
     ![alt text](./images/map_drive_4.png)
     - 
     
-
+[Return to Contents](#contents)
 
 ## [Install Docker Desktop](https://www.docker.com/products/docker-desktop/)
 Docker allows you to run software inside an isolated "container image" on your computer with all of that application's needed dependencies. Make sure to install the version for your operating system.
@@ -65,6 +80,9 @@ Docker allows you to run software inside an isolated "container image" on your c
 - [Mac-Intel](https://desktop.docker.com/mac/main/amd64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module)
 - [Mac-AppleChip](https://desktop.docker.com/mac/main/arm64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module)
 - [Linux](https://docs.docker.com/desktop/linux/install/).
+
+
+[Return to Contents](#contents)
 
 ## [Install Docker CLI (Command Line Interface) in WSL2](https://docs.docker.com/engine/install/ubuntu/)
 1. Open Ubuntu
@@ -114,6 +132,9 @@ Docker allows you to run software inside an isolated "container image" on your c
     - This command downloads a test image and runs it in a container. When the container runs, it prints a confirmation message and exits.
     - Whenever you enter the `sudo` command, you will be prompted for your WSL2 password.
 
+
+[Return to Contents](#contents)
+
 ## Install a sequence viewer
 - [Windows Bio Edit](https://bioedit.software.informer.com/)
 - [Mac Aliview](https://ormbunkar.se/aliview/#DOWNLOAD)
@@ -121,6 +142,9 @@ Docker allows you to run software inside an isolated "container image" on your c
 <hr>
 <hr>
 <br></br>
+
+
+[Return to Contents](#contents)
 
 ## Instructions for running IRMA-SPY
 <hr>
@@ -174,3 +198,6 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
 
 You are now ready to run IRMA-SPY! You can open it from `Docker Desktop` by clicking on the `Containers` tab on the left sidebar and clicking the icon of the box with the arrow pointing to the top left. This will open IRMA-SPY into your default internet browser.
 ![alt text](./images/dockerdesktop_launch_irmaspy.png)
+
+
+[Return to Contents](#contents)
