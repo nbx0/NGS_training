@@ -27,11 +27,13 @@ You can get a full linux environment using Windows Subsystem for Linux, or WSL. 
    - You can update to the latest Windows version by selecting Start > Settings > Windows Update > Check for updates.
 3. <a href="./images/powershell_open.png" target="_blank">Run powershell **as administrator**</a>
 4. Run the following command in Powershell:
+    {% include codeHeader.html %}
     ```bash
     wsl --install
     ```
 5. Restart your computer
 6. Reopen Powershell and enter the following commands:
+    {% include codeHeader.html %}
     ```bash
     wsl --set-default-version 2
     wsl --install -d Ubuntu-18.04
@@ -48,12 +50,13 @@ Further details can be found on Microsoft's website here: [https://docs.microsof
 <br/><br/>
 
 ## Map network drive to be able to use Window's File Explorer to see folders and files inside WSL
-_These instruction are for Windows 10 OS._
 1. Open <a href="./images/file_explorer.png" target="_blank">File Explorer</a>
+    - _If you have a Windows 11 OS, WSL is likely automatically mapped and visible in the left hand sidebar as "Ubuntu"_
 2. Right click <a href="./images/map_drive_1.png" target="_blank">This PC and click Map network drive</a>
 3. Enter `\\wsl$` into Folder: <a href="./images/map_drive_2.png" target="_blank">and click Browse</a>
 4. Click on `wsl$` to unfold directories, select `Ubuntu-18.04` <a href="./images/map_drive_3.png" target="_blank">and click OK</a> and then `Finish`. You should now see your WSL "drive" available in `File Explorer`:
     ![alt text](./images/map_drive_4.png)
+    - 
     
 
 
@@ -67,10 +70,13 @@ Docker allows you to run software inside an isolated "container image" on your c
 ## [Install Docker CLI (Command Line Interface) in WSL2](https://docs.docker.com/engine/install/ubuntu/)
 1. Open Ubuntu
 2. Uninstall old versions of Docker
+    {% include codeHeader.html %}
     ```bash
     sudo apt-get remove docker docker-engine docker.io containerd runc
     ```
+    - _If you have never installed Docker on your machine, you will see an error message about docker not being found. This is expected and you can move to step 3._
 3. Tell WSL2 where to look for Docker CLI tools
+    {% include codeHeader.html %}
     ```bash
     sudo apt-get update
     sudo apt-get install \
@@ -81,31 +87,36 @@ Docker allows you to run software inside an isolated "container image" on your c
     ```
 
     - During installation, you will be prompted multiple times to enter 'y' or 'n' on preceeding. Each time, input 'y' and click `Enter`
-    
+    {% include codeHeader.html %}
     ```bash
     sudo mkdir -p /etc/apt/keyrings
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
     ```
 
+    {% include codeHeader.html %}
     ```bash
     echo \
     "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
     $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     ```
 4. Install Docker CLI
+    {% include codeHeader.html %}
     ```bash
     sudo apt-get update
     ```
 
+    {% include codeHeader.html %}
     ```bash
     sudo chmod a+r /etc/apt/keyrings/docker.gpg
     sudo apt-get update
     ```
 
+    {% include codeHeader.html %}
     ```bash
     sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
     ```
 5. Verify successful installation
+    {% include codeHeader.html %}
     ```bash
     sudo docker run hello-world
     ```
