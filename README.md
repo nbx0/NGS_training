@@ -120,14 +120,16 @@ Docker allows you to run software inside an isolated "container image" on your c
 
 <hr>
 <hr>
+<br></br>
 
 ## Instructions for running IRMA-SPY
+<hr>
 
-## IRMA-SPY Container Setup
+## Container Setup
 <hr>
 IRMA-Spy relies on four Docker **_containers_** to run, each of which must be installed using the `docker pull` command inside Linux or Mac Terminal to download the docker **_images_** from the Quay.io repository (IRMA and DAIS-Ribosome are presently stored in AWS's ECR). These **_images_** are then built into runnable **_containers_** with the `docker run` command.
 <br/><br/>
-If using a Windows PC, you should have already installed WSL2, Docker Desktop, **and** Docker CLI inside WSL2. If you have not, [please return to those instructions.](../README.md#computer-requirements)
+If using a Windows PC, you should have already installed WSL2, Docker Desktop, **and** Docker CLI inside WSL2. If you have not, please return to those instructions.
 <br/><br/>
 
 1. Open an Ubuntu or Mac Terminal
