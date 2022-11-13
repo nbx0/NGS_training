@@ -1,3 +1,55 @@
+<style>
+pre.highlight {
+    padding: 8px 12px;
+    position: relative;
+  
+    // override skeleton styles
+    > code {
+      border: 0;
+      overflow-x: auto;
+      padding-right: 0;
+      padding-left: 0;
+    }
+  
+    &.highlight {
+      border-left: 15px solid #35383c;
+      color: #c1c2c3;
+      overflow: auto;
+      white-space: pre;
+      word-wrap: normal;
+  
+      &,
+      code {
+        background-color: #222;
+        font-size: 14px;
+      }
+    }
+  
+    //   code to clipboard
+    .  {
+      color: #4AF626;
+      position: absolute;
+      right: 1.2rem;
+      top: 1.2rem;
+      opacity: 0;
+  
+      &:active,
+      &:focus,
+      &:hover {
+        background: rgba(0, 0, 0, 0.7);
+        opacity: 1;
+      }
+    }
+  
+    &:active . ,
+    &:focus . ,
+    &:hover .  {
+      background: rgba(0, 0, 0, 0.7);
+      opacity: 1;
+    }
+  } 
+  </style>
+
 ## Protocol for Influenza genome and SARS-CoV-2 spike-only assembly and curation
 <hr>
 
@@ -48,12 +100,13 @@ Further details can be found on Microsoft's website here: [https://docs.microsof
 <br/><br/>
 
 ## Map network drive to be able to use Window's File Explorer to see folders and files inside WSL
-_These instruction are for Windows 10 OS._
 1. Open <a href="./images/file_explorer.png" target="_blank">File Explorer</a>
+    - _If you have a Windows 11 OS, WSL is likely automatically mapped and visible in the left hand sidebar as "Ubuntu"_
 2. Right click <a href="./images/map_drive_1.png" target="_blank">This PC and click Map network drive</a>
 3. Enter `\\wsl$` into Folder: <a href="./images/map_drive_2.png" target="_blank">and click Browse</a>
 4. Click on `wsl$` to unfold directories, select `Ubuntu-18.04` <a href="./images/map_drive_3.png" target="_blank">and click OK</a> and then `Finish`. You should now see your WSL "drive" available in `File Explorer`:
     ![alt text](./images/map_drive_4.png)
+    - 
     
 
 
@@ -70,6 +123,7 @@ Docker allows you to run software inside an isolated "container image" on your c
     ```bash
     sudo apt-get remove docker docker-engine docker.io containerd runc
     ```
+    - _If you have never installed Docker on your machine, you will see an error message about docker not being found. This is expected and you can move to step 3._
 3. Tell WSL2 where to look for Docker CLI tools
     ```bash
     sudo apt-get update
@@ -81,7 +135,6 @@ Docker allows you to run software inside an isolated "container image" on your c
     ```
 
     - During installation, you will be prompted multiple times to enter 'y' or 'n' on preceeding. Each time, input 'y' and click `Enter`
-    
     ```bash
     sudo mkdir -p /etc/apt/keyrings
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
