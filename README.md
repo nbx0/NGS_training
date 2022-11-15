@@ -64,6 +64,9 @@ Further details can be found on Microsoft's website here: [https://docs.microsof
 [Return to Contents](#contents)
 
 ## Map network drive to be able to use Window's File Explorer to see folders and files inside WSL
+
+**_Many computers have trouble with this step; the folders are not selectable during this step. First, make sure that an Ubuntu terminal is opened and then open the `File Explorer`. If "Ubuntu" is still not showing up in `File Explorer`, you can try to find the solution here: [https://github.com/microsoft/WSL/issues/3996](https://github.com/microsoft/WSL/issues/3996)._
+
 1. Open <a href="./images/file_explorer.png" target="_blank">File Explorer</a>
     - _If you have a Windows 11 OS, WSL is likely automatically mapped and visible in the left hand sidebar as "Ubuntu"_
 2. Right click <a href="./images/map_drive_1.png" target="_blank">This PC and click Map network drive</a>
