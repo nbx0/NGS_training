@@ -13,6 +13,7 @@
 5. [Install Docker for Linux](#install-docker-cli-command-line-interface-in-wsl2)
 6. [Install a sequence viewer](#install-a-sequence-viewer)
 7. [Install IRMA-SPY](#instructions-for-running-irma-spy)
+8. [Run IRMA-SPY](./IRMA-SPY-DOC.md)
 
 <hr>
 <hr>
