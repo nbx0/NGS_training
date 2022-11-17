@@ -8,7 +8,7 @@
 
 <hr>
 
- ## Contents
+## Contents
 1. [Stage your fastqs](#stage-your-demultiplexed-data)
 2. [Running genome assembly with IRMA-SPY](#run-genome-assembly-with-irma-spy)
 3. [Reviewing IRMA results](#review-irma-results)
