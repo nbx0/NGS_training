@@ -135,6 +135,23 @@ Docker allows you to run software inside an isolated "container image" on your c
     ```
     - This command downloads a test image and runs it in a container. When the container runs, it prints a confirmation message and exits.
     - Whenever you enter the `sudo` command, you will be prompted for your WSL2 password.
+    - If you get an error related to starting Docker, run the following command, then try to run hello-world again
+    ```bash
+    sudo service docker start
+    ```
+    - If you get an error related to "Permission Denied" of docker.sock, run the following command, then try to run hello-world again
+    ```bash
+    sudo chmod -755 /run/docker.sock
+    ```
+6. Verify connection to Docker Desktop
+    - If you can now see the hello-world container in Docker Desktop, you can proceed to pulling and running IRMA-SPY containers
+    - If you open Docker Desktop and do not see the Hello World container you just ran, click Settings icon (top right) --> Resources --> WSL Integration
+    - Ensure that "Enable integration with my default WSL distro" is checked off, and that Ubuntu-18.04 distro is switched on
+    ![alt text](./images/WSL_docker.png)
+    - If your hello-world container still is not showing, open the Ubuntu-18.04 command prompt and run:
+    ```bash
+    docker run -d -p 80:80 docker/getting-started
+    ```
 
 
 [Return to Contents](#contents)
