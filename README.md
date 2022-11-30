@@ -44,6 +44,9 @@ You can get a full linux environment using Windows Subsystem for Linux, or WSL. 
     ```bash
     wsl --install
     ```
+    - if you see a message relating to Virtualization needing to be enabled, follow instructions below to access your machine's BIOS setup:
+        - [Windows 11 virtualization instructions](https://support.microsoft.com/en-us/windows/enable-virtualization-on-windows-11-pcs-c5578302-6e43-4b4b-a449-8ced115f58e1)
+        - [Windows 10 virtualization instructions](https://www.geeksforgeeks.org/how-to-enable-virtualization-vt-x-in-windows-10-bios/) 
 5. Restart your computer
 6. Reopen Powershell and enter the following commands:
     ```bash
@@ -68,6 +71,7 @@ Further details can be found on Microsoft's website here: [https://docs.microsof
 
 **_Many computers have trouble with this step; the folders are not selectable during this step. First, make sure that an Ubuntu terminal is opened and then open the `File Explorer`. If "Ubuntu" is still not showing up in `File Explorer`, you can try to find the solution here: [https://github.com/microsoft/WSL/issues/3996](https://github.com/microsoft/WSL/issues/3996)._
 
+
 1. Open <a href="./images/file_explorer.png" target="_blank">File Explorer</a>
     - _If you have a Windows 11 OS, WSL is likely automatically mapped and visible in the left hand sidebar as "Ubuntu"_
 2. Right click <a href="./images/map_drive_1.png" target="_blank">This PC and click Map network drive</a>
@@ -85,6 +89,9 @@ Docker allows you to run software inside an isolated "container image" on your c
 - [Mac-AppleChip](https://desktop.docker.com/mac/main/arm64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module)
 - [Linux](https://docs.docker.com/desktop/linux/install/).
 
+    - If you get an error related to Docker user groups, go to "Edit local users and groups" from your Windows search bar
+    - Click Groups --> docker-users --> Add.. --> then enter your username
+      ![alt text](./images/dockerusers.png)
 
 [Return to Contents](#contents)
 
@@ -143,7 +150,6 @@ Docker allows you to run software inside an isolated "container image" on your c
     ```bash
     sudo chmod -755 /run/docker.sock
     ```
-6. Verify connection to Docker Desktop
     - If you can now see the hello-world container in Docker Desktop, you can proceed to pulling and running IRMA-SPY containers
     - If you open Docker Desktop and do not see the Hello World container you just ran, click Settings icon (top right) --> Resources --> WSL Integration
     - Ensure that "Enable integration with my default WSL distro" is checked off, and that Ubuntu-18.04 distro is switched on
@@ -182,6 +188,7 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
     ```bash
     docker pull public.ecr.aws/n3z8t4o2/irma:1.0.2p3
     ```
+    - if you see a "Permission Denied" error, try to rerun with sudo before "docker pull"
 3. Pull the container for our genome annotator: DAIS-Ribosome
     ```bash
     docker pull public.ecr.aws/n3z8t4o2/dais-ribosome:1.2.1
