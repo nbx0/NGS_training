@@ -1,4 +1,4 @@
-## IRMA-SPY Documentation
+## iSpy Documentation
 
 <hr>
 
@@ -10,7 +10,7 @@
 
 ## Contents
 1. [Stage your fastqs](#stage-your-demultiplexed-data)
-2. [Running genome assembly with IRMA-SPY](#run-genome-assembly-with-irma-spy)
+2. [Running genome assembly with iSpy](#run-genome-assembly-with-irma-spy)
 3. [Reviewing IRMA results](#review-irma-results)
 4. [Download your fasta](#save-your-sequence-fasta)
 
@@ -27,15 +27,15 @@
 
 [Return to contents](#contents)
 
-## Run genome assembly with IRMA-SPY
+## Run genome assembly with iSpy
 1. Open Docker Desktop and navigate to the `Containers` tab on the left sidebar. Assure that the following containers are running or run each of them:
     1. irma-1.0.2p3
     2. dais-ribsome-1.2.1
-    3. sc2-spike-seq
+    3. spyne
     4. irma-spy
     
     ![alt text](./images/dockerdesktop_run_containers.png)
-2. Run IRMA-SPY by clicking the icon of the box with the arrow pointing to the top left. This will open IRMA-SPY into your defa ult internet browser.
+2. Run iSpy by clicking the icon of the box with the arrow pointing to the top left. This will open iSpy into your defa ult internet browser.
 
     ![alt text](./images/dockerdesktop_launch_irmaspy.png)
 3. Click the `REFRESH RUN LISTING` button and select your run from  the dropdown box.
@@ -52,7 +52,7 @@
     ![alt text](./images/spy-exportSampleSheet2.png)
     ![alt text](./images/spy-exportSampleSheet3.png)
 
-6. Return to `IRMA-SPY` and **refresh** the webpage. Now select the correct data type from the drop down box, `What kind of data is this?` and click `START GENOME ASSEMBLY`. Now is a good time to go have a coffee. :coffee:
+6. Return to `iSpy` and **refresh** the webpage. Now select the correct data type from the drop down box, `What kind of data is this?` and click `START GENOME ASSEMBLY`. Now is a good time to go have a coffee. :coffee:
 
     ![alt text](./images/spy-selectDataType.png)
 
@@ -98,4 +98,4 @@
 
 [Return to contents](#contents)
 
-[Return to IRMA-SPY computer setup](./README.md)
+[Return to iSpy computer setup](./README.md)

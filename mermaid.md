@@ -5,7 +5,7 @@ title[<font size=6>Process Flowchart Diagram]
 title --> B
 linkStyle 0 stroke:#FFF,stroke-width:0;
 
-subgraph SPY[<font size=6>IRMA-SPY]
+subgraph SPY[<font size=6>iSpy]
 S{<font size=5>Samplesheet\nGeneration} --> B
 B --> C[<font size=5>DAIS-Ribosome\nannotation]
 C --> D{<font size=5>Quality\nAssessment}

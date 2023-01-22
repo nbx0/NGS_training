@@ -6,20 +6,23 @@
 <hr>
 
 ## Contents
-1. [Computer requirements](#computer-requirements)
-2. [Installing Linux on Windows](#how-to-install-linux-on-a-windows-1011-computer)
-3. [Map Linux folders to Windows folders](#map-network-drive-to-be-able-to-use-windows-file-explorer-to-see-folders-and-files-inside-wsl)
-4. [Install Docker Desktop](#install-docker-desktop)
-5. [Install Docker for Linux](#install-docker-cli-command-line-interface-in-wsl2)
-6. [Install a sequence viewer](#install-a-sequence-viewer)
-7. [Install IRMA-SPY](#instructions-for-running-irma-spy)
-8. [Run IRMA-SPY](./IRMA-SPY-DOC.md)
+- [Protocol for Influenza genome and SARS-CoV-2 spike-only assembly and curation](#protocol-for-influenza-genome-and-sars-cov-2-spike-only-assembly-and-curation)
+  - [Start with demultiplexed sequencing reads from an Illumina or Oxford Nanopore Technologies sequencer and finish with high quality genomes ready for submission to public repositories!](#start-with-demultiplexed-sequencing-reads-from-an-illumina-or-oxford-nanopore-technologies-sequencer-and-finish-with-high-quality-genomes-ready-for-submission-to-public-repositories)
+- [Contents](#contents)
+- [Computer requirements](#computer-requirements)
+- [How to install linux on a Windows 10/11 computer](#how-to-install-linux-on-a-windows-1011-computer)
+- [Map network drive to be able to use Window's File Explorer to see folders and files inside WSL](#map-network-drive-to-be-able-to-use-windows-file-explorer-to-see-folders-and-files-inside-wsl)
+- [Install Docker Desktop](#install-docker-desktop)
+- [Install Docker CLI (Command Line Interface) in WSL2](#install-docker-cli-command-line-interface-in-wsl2)
+- [Install a sequence viewer](#install-a-sequence-viewer)
+- [Instructions for running iSpy](#instructions-for-running-ispy)
+- [Container Setup](#container-setup)
 
 <hr>
 <hr>
 
 ![alt text](./images/mermaid_flow.png)
-![alt text](./images/mermaid_key.png)
+
 
 
 
@@ -73,7 +76,7 @@ Further details can be found on Microsoft's website here: [https://docs.microsof
 
 
 1. Open <a href="./images/file_explorer.png" target="_blank">File Explorer</a>
-    - _If you have a Windows 11 OS, WSL is likely automatically mapped and visible in the left hand sidebar as "Ubuntu"_
+    - _If you have a Windows 10 or 11 OS, WSL is likely automatically mapped and visible in the left hand sidebar as "Ubuntu"_
 2. Right click <a href="./images/map_drive_1.png" target="_blank">This PC and click Map network drive</a>
 3. Enter `\\wsl$` into Folder: <a href="./images/map_drive_2.png" target="_blank">and click Browse</a>
 4. Click on `wsl$` to unfold directories, select `Ubuntu-18.04` <a href="./images/map_drive_3.png" target="_blank">and click OK</a> and then `Finish`. You should now see your WSL "drive" available in `File Explorer`:
@@ -150,7 +153,7 @@ Docker allows you to run software inside an isolated "container image" on your c
     ```bash
     sudo chmod -755 /run/docker.sock
     ```
-    - If you can now see the hello-world container in Docker Desktop, you can proceed to pulling and running IRMA-SPY containers
+    - If you can now see the hello-world container in Docker Desktop, you can proceed to pulling and running iSpy containers
     - If you open Docker Desktop and do not see the Hello World container you just ran, click Settings icon (top right) --> Resources --> WSL Integration
     - Ensure that "Enable integration with my default WSL distro" is checked off, and that Ubuntu-18.04 distro is switched on
     ![alt text](./images/WSL_docker.png)
@@ -173,7 +176,7 @@ Docker allows you to run software inside an isolated "container image" on your c
 
 [Return to Contents](#contents)
 
-## Instructions for running IRMA-SPY
+## Instructions for running iSpy
 <hr>
 
 ## Container Setup
@@ -193,11 +196,11 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
     ```bash
     docker pull public.ecr.aws/n3z8t4o2/dais-ribosome:1.2.1
     ```
-4. Pull the container for IRMA-SPY's backend [Snakemake workflow manager](https://snakemake.readthedocs.io/en/stable/)
+4. Pull the container for iSpy's backend [Snakemake workflow manager](https://snakemake.readthedocs.io/en/stable/)
     ```bash
-    docker pull quay.io/nbx0_cdc/sc2-spike-seq:v1.0.0
+    docker pull quay.io/nbx0_cdc/spyne:v1.0.0
     ```
-5. Pull the container for IRMA-SPY
+5. Pull the container for iSpy
     ```bash
     docker pull quay.io/nbx0_cdc/irma-spy:v1.0.1
     ```
@@ -217,14 +220,14 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
     ```
 9. Build the Snakemake container
     ```bash
-    docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data -v /var/run/docker.sock:/var/run/docker.sock --name sc2-spike-seq -t -d quay.io/nbx0_cdc/sc2-spike-seq:v1.0.0
+    docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data -v /var/run/docker.sock:/var/run/docker.sock --name spyne -t -d quay.io/nbx0_cdc/spyne:v1.0.0
     ```
-10. Build the IRMA-SPY container
+10. Build the iSpy container
     ```bash
     docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data -v /var/run/docker.sock:/var/run/docker.sock -d -p 8050:8050 --name irma-spy quay.io/nbx0_cdc/irma-spy:v1.0.1
     ```
 
-You are now ready to run IRMA-SPY! You can open it from `Docker Desktop` by clicking on the `Containers` tab on the left sidebar and clicking the icon of the box with the arrow pointing to the top left. This will open IRMA-SPY into your default internet browser.
+You are now ready to run iSpy! You can open it from `Docker Desktop` by clicking on the `Containers` tab on the left sidebar and clicking the icon of the box with the arrow pointing to the top left. This will open iSpy into your default internet browser.
 ![alt text](./images/dockerdesktop_launch_irmaspy.png)
 
 [Return to Contents](#contents)
