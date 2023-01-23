@@ -5,6 +5,8 @@
 ### Start with demultiplexed sequencing reads from an Illumina or Oxford Nanopore Technologies sequencer and finish with high quality genomes ready for submission to public repositories!
 <hr>
 
+## [Documentation for running iSpy](https://nbx0.github.io/NGS_training/IRMA-SPY-DOC.html)
+
 ## Contents
 - [Protocol for Influenza genome and SARS-CoV-2 spike-only assembly and curation](#protocol-for-influenza-genome-and-sars-cov-2-spike-only-assembly-and-curation)
 - [Computer requirements](#computer-requirements)
@@ -13,8 +15,8 @@
 - [Install Docker Desktop](#install-docker-desktop)
 - [Install Docker CLI (Command Line Interface) in WSL2](#install-docker-cli-command-line-interface-in-wsl2)
 - [Install a sequence viewer](#install-a-sequence-viewer)
-- [Instructions for running iSpy](#instructions-for-running-ispy)
 - [Container Setup](#container-setup)
+
 
 <hr>
 <hr>
@@ -183,14 +185,11 @@ All following lines of code can be copy/pasted into your terminal.
 
 [Return to Contents](#contents)
 
-## Instructions for running iSpy
-<hr>
-
 ## Container Setup
 <hr>
 iSpy relies on four Docker **_containers_** to run, each of which must be installed using the `docker pull` command inside Linux or Mac Terminal to download the docker **_images_** from the Quay.io repository (IRMA and DAIS-Ribosome are presently stored in AWS's ECR). These **_images_** are then built into runnable **_containers_** with the `docker run` command.
 <br/><br/>
-If using a Windows PC, you should have already installed WSL2, Docker Desktop, **and** Docker CLI inside WSL2. If you have not, please return to those instructions.
+If using a Windows PC, you should have already installed WSL2, Docker Desktop, **and** Docker CLI inside WSL2. If you have not, [please return to those instructions.](#how-to-install-linux-on-a-windows-1011-computer)
 <br/><br/>
 
 1. Open an Ubuntu or Mac Terminal
@@ -215,7 +214,7 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
     ```bash
     mkdir ~/FLU_SC2_SEQUENCING
     ```
-    - **_Optional:_** Navigate to `File Explorer` and find this folder inside the Ubuntu mount on the left sidebar. Click on this folder to open its contents and then open `home` and then open the folder named for your WSL _username_. Right click "FLU_SC2_SEQUENCING" and `Create Shortcut`. Move the shortcut folder to an memorable location such as your Desktop.
+    - **_Optional:_** Navigate to `File Explorer` and find this folder inside the Ubuntu mount on the left sidebar. Click on this folder to open its contents and then open `home` and then open the folder named for your WSL _username_. Right click "FLU_SC2_SEQUENCING" and `Create Shortcut`. Move the shortcut folder to a memorable location such as your Desktop.
 
 7. Build the IRMA container
     ```bash
