@@ -4,8 +4,8 @@
 
 ### Start with demultiplexed sequencing reads from an Illumina or Oxford Nanopore Technologies sequencer and finish with high quality genomes ready for submission to public repositories!
 <hr>
-
 ## [Documentation for running iSpy](https://nbx0.github.io/NGS_training/IRMA-SPY-DOC.html)
+
 
 ## Contents
 - [Protocol for Influenza genome and SARS-CoV-2 spike-only assembly and curation](#protocol-for-influenza-genome-and-sars-cov-2-spike-only-assembly-and-curation)
