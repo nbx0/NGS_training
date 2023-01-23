@@ -5,18 +5,18 @@
 ### Start with demultiplexed sequencing reads from an Illumina or Oxford Nanopore Technologies sequencer and finish with high quality genomes ready for submission to public repositories!
 <hr>
 
+## [Documentation for running iSpy](https://nbx0.github.io/NGS_training/IRMA-SPY-DOC.html)
+
 ## Contents
 - [Protocol for Influenza genome and SARS-CoV-2 spike-only assembly and curation](#protocol-for-influenza-genome-and-sars-cov-2-spike-only-assembly-and-curation)
-  - [Start with demultiplexed sequencing reads from an Illumina or Oxford Nanopore Technologies sequencer and finish with high quality genomes ready for submission to public repositories!](#start-with-demultiplexed-sequencing-reads-from-an-illumina-or-oxford-nanopore-technologies-sequencer-and-finish-with-high-quality-genomes-ready-for-submission-to-public-repositories)
-- [Contents](#contents)
 - [Computer requirements](#computer-requirements)
 - [How to install linux on a Windows 10/11 computer](#how-to-install-linux-on-a-windows-1011-computer)
-- [Map network drive to be able to use Window's File Explorer to see folders and files inside WSL](#map-network-drive-to-be-able-to-use-windows-file-explorer-to-see-folders-and-files-inside-wsl)
+- [Map network drive in Window's File Explorer to see folders and files inside WSL](#map-network-drive-to-be-able-to-use-windows-file-explorer-to-see-folders-and-files-inside-wsl)
 - [Install Docker Desktop](#install-docker-desktop)
 - [Install Docker CLI (Command Line Interface) in WSL2](#install-docker-cli-command-line-interface-in-wsl2)
 - [Install a sequence viewer](#install-a-sequence-viewer)
-- [Instructions for running iSpy](#instructions-for-running-ispy)
 - [Container Setup](#container-setup)
+
 
 <hr>
 <hr>
@@ -58,7 +58,9 @@ You can get a full linux environment using Windows Subsystem for Linux, or WSL. 
     ```
     Following successful installation, an Ubuntu terminal should pop up that looks like:
     ![alt text](./images/ubuntu_setub_1.png)
-7. Enter a username that will be exclusive for WSL. Press `Enter` and then enter a password. **_It is very important_**, _to choose a memorable password. If you forget your password you will need to reinstall Ubuntu_. A "prompt" will then appear in the screen like:
+7. Enter a username that will be exclusive for WSL. Press `Enter` and then enter a password. **_It is very important_**, _to choose a memorable password. If you forget your password you will need to reinstall Ubuntu_. 
+
+A "prompt" will then appear in the screen like:
     ![alt text](./images/commandprompt_wsl.png) with `nbx0` replaced by your entered username and `L349232` replaced with your computer's name.
 8. Restart your computer.
 
@@ -72,6 +74,9 @@ Further details can be found on Microsoft's website here: [https://docs.microsof
 
 ## Map network drive to be able to use Window's File Explorer to see folders and files inside WSL
 
+**_Windows 11 and updated versions of Windows 10 should automatically mount Linux. If you have "Linux" in your `File Explorer`, you are good to go and do not need to perform this step._
+![alt text](./images/map_drive_win11-10_linux.png)
+
 **_Many computers have trouble with this step; the folders are not selectable during this step. First, make sure that an Ubuntu terminal is opened and then open the `File Explorer`. If "Ubuntu" is still not showing up in `File Explorer`, you can try to find the solution here: [https://github.com/microsoft/WSL/issues/3996](https://github.com/microsoft/WSL/issues/3996)._
 
 
@@ -80,8 +85,9 @@ Further details can be found on Microsoft's website here: [https://docs.microsof
 2. Right click <a href="./images/map_drive_1.png" target="_blank">This PC and click Map network drive</a>
 3. Enter `\\wsl$` into Folder: <a href="./images/map_drive_2.png" target="_blank">and click Browse</a>
 4. Click on `wsl$` to unfold directories, select `Ubuntu-18.04` <a href="./images/map_drive_3.png" target="_blank">and click OK</a> and then `Finish`. You should now see your WSL "drive" available in `File Explorer`:
+
     ![alt text](./images/map_drive_4.png)
-    - 
+    
     
 [Return to Contents](#contents)
 
@@ -90,16 +96,19 @@ Docker allows you to run software inside an isolated "container image" on your c
 - [Windows](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=header)
 - [Mac-Intel](https://desktop.docker.com/mac/main/amd64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module)
 - [Mac-AppleChip](https://desktop.docker.com/mac/main/arm64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module)
-- [Linux](https://docs.docker.com/desktop/linux/install/).
+- [Linux](https://docs.docker.com/desktop/linux/install/)
 
     - If you get an error related to Docker user groups, go to "Edit local users and groups" from your Windows search bar
-    - Click Groups --> docker-users --> Add.. --> then enter your username
+    - Click Groups --> docker-users --> Add... --> then enter your username
       ![alt text](./images/dockerusers.png)
 
 [Return to Contents](#contents)
 
 ## [Install Docker CLI (Command Line Interface) in WSL2](https://docs.docker.com/engine/install/ubuntu/)
-1. Open Ubuntu
+
+All following lines of code can be copy/pasted into your terminal.
+
+1. Open Ubuntu or Mac terminal
 2. Uninstall old versions of Docker
     ```bash
     sudo apt-get remove docker docker-engine docker.io containerd runc
@@ -171,19 +180,16 @@ Docker allows you to run software inside an isolated "container image" on your c
 
 <hr>
 <hr>
-<br></br>
+<br/><br/>
 
 
 [Return to Contents](#contents)
 
-## Instructions for running iSpy
-<hr>
-
 ## Container Setup
 <hr>
-IRMA-Spy relies on four Docker **_containers_** to run, each of which must be installed using the `docker pull` command inside Linux or Mac Terminal to download the docker **_images_** from the Quay.io repository (IRMA and DAIS-Ribosome are presently stored in AWS's ECR). These **_images_** are then built into runnable **_containers_** with the `docker run` command.
+iSpy relies on four Docker **_containers_** to run, each of which must be installed using the `docker pull` command inside Linux or Mac Terminal to download the docker **_images_** from the Quay.io repository (IRMA and DAIS-Ribosome are presently stored in AWS's ECR). These **_images_** are then built into runnable **_containers_** with the `docker run` command.
 <br/><br/>
-If using a Windows PC, you should have already installed WSL2, Docker Desktop, **and** Docker CLI inside WSL2. If you have not, please return to those instructions.
+If using a Windows PC, you should have already installed WSL2, Docker Desktop, **and** Docker CLI inside WSL2. If you have not, [please return to those instructions.](#how-to-install-linux-on-a-windows-1011-computer)
 <br/><br/>
 
 1. Open an Ubuntu or Mac Terminal
@@ -198,17 +204,17 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
     ```
 4. Pull the container for iSpy's backend [Snakemake workflow manager](https://snakemake.readthedocs.io/en/stable/)
     ```bash
-    docker pull quay.io/nbx0_cdc/spyne:v1.0.0
+    docker pull quay.io/nbx0_cdc/spyne:v1.1.0
     ```
 5. Pull the container for iSpy
     ```bash
-    docker pull quay.io/nbx0_cdc/irma-spy:v1.0.1
+    docker pull quay.io/nbx0_cdc/ispy:v1.1.0
     ```
 6. Create a folder inside Ubuntu that will store your sequencing runs' data.
     ```bash
     mkdir ~/FLU_SC2_SEQUENCING
     ```
-    - **_Optional:_** Navigate to `File Explorer` and find this folder inside the Ubuntu mount on the left sidebar. Click on this folder to open its contents and then open `home` and then open the folder named for your WSL _username_. Right click "FLU_SC2_SEQUENCING" and `Create Shortcut`. Move the shortcut folder to an memorable location such as your Desktop.
+    - **_Optional:_** Navigate to `File Explorer` and find this folder inside the Ubuntu mount on the left sidebar. Click on this folder to open its contents and then open `home` and then open the folder named for your WSL _username_. Right click "FLU_SC2_SEQUENCING" and `Create Shortcut`. Move the shortcut folder to a memorable location such as your Desktop.
 
 7. Build the IRMA container
     ```bash
@@ -220,11 +226,11 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
     ```
 9. Build the Snakemake container
     ```bash
-    docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data -v /var/run/docker.sock:/var/run/docker.sock --name spyne -t -d quay.io/nbx0_cdc/spyne:v1.0.0
+    docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data -v /var/run/docker.sock:/var/run/docker.sock --name spyne -t -d quay.io/nbx0_cdc/spyne:v1.1.0
     ```
 10. Build the iSpy container
     ```bash
-    docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data -v /var/run/docker.sock:/var/run/docker.sock -d -p 8050:8050 --name irma-spy quay.io/nbx0_cdc/irma-spy:v1.0.1
+    docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data -v /var/run/docker.sock:/var/run/docker.sock -d -p 8050:8050 --name ispy quay.io/nbx0_cdc/ispy:v1.1.0
     ```
 
 You are now ready to run iSpy! You can open it from `Docker Desktop` by clicking on the `Containers` tab on the left sidebar and clicking the icon of the box with the arrow pointing to the top left. This will open iSpy into your default internet browser.
