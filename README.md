@@ -172,7 +172,7 @@ Docker allows you to run software inside an isolated "container image" on your c
 
 <hr>
 <hr>
-<br/></br>
+<br/><br/>
 
 
 [Return to Contents](#contents)
