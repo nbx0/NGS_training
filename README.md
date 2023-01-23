@@ -188,7 +188,7 @@ All following lines of code can be copy/pasted into your terminal.
 
 ## Container Setup
 <hr>
-IRMA-Spy relies on four Docker **_containers_** to run, each of which must be installed using the `docker pull` command inside Linux or Mac Terminal to download the docker **_images_** from the Quay.io repository (IRMA and DAIS-Ribosome are presently stored in AWS's ECR). These **_images_** are then built into runnable **_containers_** with the `docker run` command.
+iSpy relies on four Docker **_containers_** to run, each of which must be installed using the `docker pull` command inside Linux or Mac Terminal to download the docker **_images_** from the Quay.io repository (IRMA and DAIS-Ribosome are presently stored in AWS's ECR). These **_images_** are then built into runnable **_containers_** with the `docker run` command.
 <br/><br/>
 If using a Windows PC, you should have already installed WSL2, Docker Desktop, **and** Docker CLI inside WSL2. If you have not, please return to those instructions.
 <br/><br/>
@@ -209,7 +209,7 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
     ```
 5. Pull the container for iSpy
     ```bash
-    docker pull quay.io/nbx0_cdc/irma-spy:v1.1.0
+    docker pull quay.io/nbx0_cdc/ispy:v1.1.0
     ```
 6. Create a folder inside Ubuntu that will store your sequencing runs' data.
     ```bash
@@ -231,7 +231,7 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
     ```
 10. Build the iSpy container
     ```bash
-    docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data -v /var/run/docker.sock:/var/run/docker.sock -d -p 8050:8050 --name irma-spy quay.io/nbx0_cdc/irma-spy:v1.1.0
+    docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data -v /var/run/docker.sock:/var/run/docker.sock -d -p 8050:8050 --name ispy quay.io/nbx0_cdc/ispy:v1.1.0
     ```
 
 You are now ready to run iSpy! You can open it from `Docker Desktop` by clicking on the `Containers` tab on the left sidebar and clicking the icon of the box with the arrow pointing to the top left. This will open iSpy into your default internet browser.

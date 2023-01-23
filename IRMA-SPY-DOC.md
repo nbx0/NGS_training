@@ -32,7 +32,7 @@
     1. irma-1.0.2p3
     2. dais-ribsome-1.2.1
     3. spyne
-    4. irma-spy
+    4. iSpy
     
     ![alt text](./images/dockerdesktop_run_containers.png)
 2. Run iSpy by clicking the icon of the box with the arrow pointing to the top left. This will open iSpy into your defa ult internet browser.
