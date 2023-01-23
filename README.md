@@ -72,6 +72,9 @@ Further details can be found on Microsoft's website here: [https://docs.microsof
 
 ## Map network drive to be able to use Window's File Explorer to see folders and files inside WSL
 
+**_Windows 11 and updated versions of Windows 10 should automatically mount Linux. If you have "Linux" in your `File Explorer`, you are good to go and do not need to perform this step._
+![alt text](./images/map_drive_win11-10_linux.png)
+
 **_Many computers have trouble with this step; the folders are not selectable during this step. First, make sure that an Ubuntu terminal is opened and then open the `File Explorer`. If "Ubuntu" is still not showing up in `File Explorer`, you can try to find the solution here: [https://github.com/microsoft/WSL/issues/3996](https://github.com/microsoft/WSL/issues/3996)._
 
 
