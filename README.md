@@ -74,6 +74,9 @@ Further details can be found on Microsoft's website here: [https://docs.microsof
 
 ## Map network drive to be able to use Window's File Explorer to see folders and files inside WSL
 
+**_Windows 11 and updated versions of Windows 10 should automatically mount Linux. If you have "Linux" in your `File Explorer`, you are good to go and do not need to perform this step._
+![alt text](./images/map_drive_win11-10_linux.png)
+
 **_Many computers have trouble with this step; the folders are not selectable during this step. First, make sure that an Ubuntu terminal is opened and then open the `File Explorer`. If "Ubuntu" is still not showing up in `File Explorer`, you can try to find the solution here: [https://github.com/microsoft/WSL/issues/3996](https://github.com/microsoft/WSL/issues/3996)._
 
 
@@ -187,7 +190,7 @@ All following lines of code can be copy/pasted into your terminal.
 
 ## Container Setup
 <hr>
-IRMA-Spy relies on four Docker **_containers_** to run, each of which must be installed using the `docker pull` command inside Linux or Mac Terminal to download the docker **_images_** from the Quay.io repository (IRMA and DAIS-Ribosome are presently stored in AWS's ECR). These **_images_** are then built into runnable **_containers_** with the `docker run` command.
+iSpy relies on four Docker **_containers_** to run, each of which must be installed using the `docker pull` command inside Linux or Mac Terminal to download the docker **_images_** from the Quay.io repository (IRMA and DAIS-Ribosome are presently stored in AWS's ECR). These **_images_** are then built into runnable **_containers_** with the `docker run` command.
 <br/><br/>
 If using a Windows PC, you should have already installed WSL2, Docker Desktop, **and** Docker CLI inside WSL2. If you have not, please return to those instructions.
 <br/><br/>
@@ -208,7 +211,7 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
     ```
 5. Pull the container for iSpy
     ```bash
-    docker pull quay.io/nbx0_cdc/irma-spy:v1.1.0
+    docker pull quay.io/nbx0_cdc/ispy:v1.1.0
     ```
 6. Create a folder inside Ubuntu that will store your sequencing runs' data.
     ```bash
@@ -230,7 +233,7 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
     ```
 10. Build the iSpy container
     ```bash
-    docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data -v /var/run/docker.sock:/var/run/docker.sock -d -p 8050:8050 --name irma-spy quay.io/nbx0_cdc/irma-spy:v1.1.0
+    docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data -v /var/run/docker.sock:/var/run/docker.sock -d -p 8050:8050 --name ispy quay.io/nbx0_cdc/ispy:v1.1.0
     ```
 
 You are now ready to run iSpy! You can open it from `Docker Desktop` by clicking on the `Containers` tab on the left sidebar and clicking the icon of the box with the arrow pointing to the top left. This will open iSpy into your default internet browser.
