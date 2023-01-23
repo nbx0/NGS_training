@@ -7,11 +7,9 @@
 
 ## Contents
 - [Protocol for Influenza genome and SARS-CoV-2 spike-only assembly and curation](#protocol-for-influenza-genome-and-sars-cov-2-spike-only-assembly-and-curation)
-  - [Start with demultiplexed sequencing reads from an Illumina or Oxford Nanopore Technologies sequencer and finish with high quality genomes ready for submission to public repositories!](#start-with-demultiplexed-sequencing-reads-from-an-illumina-or-oxford-nanopore-technologies-sequencer-and-finish-with-high-quality-genomes-ready-for-submission-to-public-repositories)
-- [Contents](#contents)
 - [Computer requirements](#computer-requirements)
 - [How to install linux on a Windows 10/11 computer](#how-to-install-linux-on-a-windows-1011-computer)
-- [Map network drive to be able to use Window's File Explorer to see folders and files inside WSL](#map-network-drive-to-be-able-to-use-windows-file-explorer-to-see-folders-and-files-inside-wsl)
+- [Map network drive in Window's File Explorer to see folders and files inside WSL](#map-network-drive-to-be-able-to-use-windows-file-explorer-to-see-folders-and-files-inside-wsl)
 - [Install Docker Desktop](#install-docker-desktop)
 - [Install Docker CLI (Command Line Interface) in WSL2](#install-docker-cli-command-line-interface-in-wsl2)
 - [Install a sequence viewer](#install-a-sequence-viewer)
@@ -58,7 +56,9 @@ You can get a full linux environment using Windows Subsystem for Linux, or WSL. 
     ```
     Following successful installation, an Ubuntu terminal should pop up that looks like:
     ![alt text](./images/ubuntu_setub_1.png)
-7. Enter a username that will be exclusive for WSL. Press `Enter` and then enter a password. **_It is very important_**, _to choose a memorable password. If you forget your password you will need to reinstall Ubuntu_. A "prompt" will then appear in the screen like:
+7. Enter a username that will be exclusive for WSL. Press `Enter` and then enter a password. **_It is very important_**, _to choose a memorable password. If you forget your password you will need to reinstall Ubuntu_. 
+
+A "prompt" will then appear in the screen like:
     ![alt text](./images/commandprompt_wsl.png) with `nbx0` replaced by your entered username and `L349232` replaced with your computer's name.
 8. Restart your computer.
 
@@ -91,16 +91,19 @@ Docker allows you to run software inside an isolated "container image" on your c
 - [Windows](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=header)
 - [Mac-Intel](https://desktop.docker.com/mac/main/amd64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module)
 - [Mac-AppleChip](https://desktop.docker.com/mac/main/arm64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module)
-- [Linux](https://docs.docker.com/desktop/linux/install/).
+- [Linux](https://docs.docker.com/desktop/linux/install/)
 
     - If you get an error related to Docker user groups, go to "Edit local users and groups" from your Windows search bar
-    - Click Groups --> docker-users --> Add.. --> then enter your username
+    - Click Groups --> docker-users --> Add... --> then enter your username
       ![alt text](./images/dockerusers.png)
 
 [Return to Contents](#contents)
 
 ## [Install Docker CLI (Command Line Interface) in WSL2](https://docs.docker.com/engine/install/ubuntu/)
-1. Open Ubuntu
+
+All following lines of code can be copy/pasted into your terminal.
+
+1. Open Ubuntu or Mac terminal
 2. Uninstall old versions of Docker
     ```bash
     sudo apt-get remove docker docker-engine docker.io containerd runc
@@ -116,7 +119,7 @@ Docker allows you to run software inside an isolated "container image" on your c
     lsb-release
     ```
 
-    - During installation, you will be prompted multiple times to enter 'y' or 'n' on preceeding. Each time, input 'y' and click `Enter`
+During installation, you will be prompted multiple times to enter 'y' or 'n' on preceeding. Each time, input 'y' and click `Enter`
     ```bash
     sudo mkdir -p /etc/apt/keyrings
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
