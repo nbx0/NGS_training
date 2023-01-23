@@ -80,8 +80,9 @@ Further details can be found on Microsoft's website here: [https://docs.microsof
 2. Right click <a href="./images/map_drive_1.png" target="_blank">This PC and click Map network drive</a>
 3. Enter `\\wsl$` into Folder: <a href="./images/map_drive_2.png" target="_blank">and click Browse</a>
 4. Click on `wsl$` to unfold directories, select `Ubuntu-18.04` <a href="./images/map_drive_3.png" target="_blank">and click OK</a> and then `Finish`. You should now see your WSL "drive" available in `File Explorer`:
+
     ![alt text](./images/map_drive_4.png)
-    - 
+    
     
 [Return to Contents](#contents)
 
@@ -171,7 +172,7 @@ Docker allows you to run software inside an isolated "container image" on your c
 
 <hr>
 <hr>
-<br></br>
+<br/></br>
 
 
 [Return to Contents](#contents)
@@ -198,11 +199,11 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
     ```
 4. Pull the container for iSpy's backend [Snakemake workflow manager](https://snakemake.readthedocs.io/en/stable/)
     ```bash
-    docker pull quay.io/nbx0_cdc/spyne:v1.0.0
+    docker pull quay.io/nbx0_cdc/spyne:v1.1.0
     ```
 5. Pull the container for iSpy
     ```bash
-    docker pull quay.io/nbx0_cdc/irma-spy:v1.0.1
+    docker pull quay.io/nbx0_cdc/irma-spy:v1.1.0
     ```
 6. Create a folder inside Ubuntu that will store your sequencing runs' data.
     ```bash
@@ -220,11 +221,11 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
     ```
 9. Build the Snakemake container
     ```bash
-    docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data -v /var/run/docker.sock:/var/run/docker.sock --name spyne -t -d quay.io/nbx0_cdc/spyne:v1.0.0
+    docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data -v /var/run/docker.sock:/var/run/docker.sock --name spyne -t -d quay.io/nbx0_cdc/spyne:v1.1.0
     ```
 10. Build the iSpy container
     ```bash
-    docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data -v /var/run/docker.sock:/var/run/docker.sock -d -p 8050:8050 --name irma-spy quay.io/nbx0_cdc/irma-spy:v1.0.1
+    docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data -v /var/run/docker.sock:/var/run/docker.sock -d -p 8050:8050 --name irma-spy quay.io/nbx0_cdc/irma-spy:v1.1.0
     ```
 
 You are now ready to run iSpy! You can open it from `Docker Desktop` by clicking on the `Containers` tab on the left sidebar and clicking the icon of the box with the arrow pointing to the top left. This will open iSpy into your default internet browser.
