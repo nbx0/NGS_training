@@ -7,6 +7,8 @@
 
 ## [Documentation for running iSpy](https://nbx0.github.io/NGS_training/IRMA-SPY-DOC.html)
 
+## [How to update software containers](https://nbx0.github.io/NGS_training/UNINSTALL-DOC.html)
+
 ## Contents
 - [Protocol for Influenza genome and SARS-CoV-2 spike-only assembly and curation](#protocol-for-influenza-genome-and-sars-cov-2-spike-only-assembly-and-curation)
 - [Computer requirements](#computer-requirements)
@@ -106,7 +108,7 @@ Docker allows you to run software inside an isolated "container image" on your c
 
 ## [Install Docker CLI (Command Line Interface) in WSL2](https://docs.docker.com/engine/install/ubuntu/)
 
-All following lines of code can be copy/pasted into your terminal.
+All following lines of code can be copy/pasted into your terminal. Pasting using `CTRL`+`V` into a terminal my not work. After copying a line of code, try pasting into the terminal with a `right click` of your mouse or trackpad. 
 
 1. Open Ubuntu or Mac terminal
 2. Uninstall old versions of Docker
