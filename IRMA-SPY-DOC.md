@@ -66,7 +66,7 @@
 
     ![alt text](./images/spy-barcodeDistribution.png)
 
-2. Review the "Automatic Quality Control Decisions" heatmap. In addition to IRMA's built in quality control, iSpy requires a minimum mean coverage of 50x, a minimum coverage of reference of 90%, and a maximum number of minor variants >=5% of 10. These are marked in orange. Samples that failed to generate any assembly are marked in red. In addition, premature stop codons are flagged in yellow. CDC does not submit sequences with premature stop codons, particularly in HA, NA or SARS-CoV-2 Spike. Outside of those genes, premature stop codons near the end of the gene may be ok for submission.
+2. Review the "Automatic Quality Control Decisions" heatmap. In addition to IRMA's built in quality control, iSpy requires a minimum mean coverage of 50x, a minimum coverage of reference of 90%, and a maximum number of minor variants >=5% of 10. These are marked in yellow to orange according to the number of these failure types. Samples that failed to generate any assembly are marked in red. In addition, premature stop codons are flagged in yellow. CDC does not submit sequences with premature stop codons, particularly in HA, NA or SARS-CoV-2 Spike. Outside of those genes, premature stop codons near the end of the gene may be ok for submission.
 
     ![alt text](./images/spy-qc_heatmap.png)
 
@@ -94,6 +94,11 @@
 - Export IRMA's _amended consensus_ nucleotide sequences and amino acid fasta files. This includes only those passing iSpy's QC criteria and are ready for submission to public databases!
 
     ![alt text](./images/spy-saveFasta.png)
+
+## GISAID: [https://gisaid.org/](https://gisaid.org/)
+## NCBI-Genbank: [https://www.ncbi.nlm.nih.gov/genbank/](https://www.ncbi.nlm.nih.gov/genbank/)
+## NCBI-BLAST: [https://blast.ncbi.nlm.nih.gov/Blast.cgi](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
+## Nextclade: [https://clades.nextstrain.org/](https://clades.nextstrain.org/)
 
 <br>
 <hr>
