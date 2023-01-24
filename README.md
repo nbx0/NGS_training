@@ -1,5 +1,5 @@
 
-## Protocol for Influenza genome and SARS-CoV-2 spike-only assembly and curation
+## Protocol for Influenza genome and SARS-CoV-2 spike-gene assembly and curation
 <hr>
 
 ### Start with demultiplexed sequencing reads from an Illumina or Oxford Nanopore Technologies sequencer and finish with high quality genomes ready for submission to public repositories!

@@ -95,6 +95,11 @@
 
     ![alt text](./images/spy-saveFasta.png)
 
+## GISAID: [https://gisaid.org/](https://gisaid.org/)
+## NCBI-Genbank: [https://www.ncbi.nlm.nih.gov/genbank/](https://www.ncbi.nlm.nih.gov/genbank/)
+## NCBI-BLAST: [https://blast.ncbi.nlm.nih.gov/Blast.cgi](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
+## Nextclade: [https://clades.nextstrain.org/](https://clades.nextstrain.org/)
+
 <br>
 <hr>
 <hr>
