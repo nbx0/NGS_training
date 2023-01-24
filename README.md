@@ -6,7 +6,6 @@
 <hr>
 
 
-
 - ## [Documentation for running iSpy](https://nbx0.github.io/NGS_training/IRMA-SPY-DOC.html)
 
 - ## [How to update software containers](https://nbx0.github.io/NGS_training/UNINSTALL-DOC.html)
@@ -14,6 +13,8 @@
 - ## Contact us by [email](mailto:idseqsupport@cdc.gov) or [Github](https://github.com/nbx0/NGS_training/issues)
 
 <hr>
+
+
 
 ## Contents
 - [Protocol for Influenza genome and SARS-CoV-2 spike-only assembly and curation](#protocol-for-influenza-genome-and-sars-cov-2-spike-only-assembly-and-curation)
