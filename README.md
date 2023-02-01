@@ -241,7 +241,12 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
     ```bash
     docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data -v /var/run/docker.sock:/var/run/docker.sock -d -p 8050:8050 --name ispy quay.io/nbx0_cdc/ispy:v1.1.0
     ```
-
+11. _Optional :_ [Download test data here](https://centersfordiseasecontrol.sharefile.com/d-sb2d3b06e9ef946cf89e1a43c5a141a3f)
+    - unzip the file and find two folders
+        - tiny_test_run_flu
+        - tiny_test_run_sc2
+    - move these folders into ~/FLU_SC2_SEQUENCING
+    
 You are now ready to run iSpy! You can open it from `Docker Desktop` by clicking on the `Containers` tab on the left sidebar and clicking the icon of the box with the arrow pointing to the top left. This will open iSpy into your default internet browser.
 ![alt text](./images/dockerdesktop_launch_irmaspy.png)
 
