@@ -211,9 +211,9 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
     ```bash
     docker pull public.ecr.aws/n3z8t4o2/dais-ribosome:1.2.1
     ```
-4. Pull the container for iSpy's backend [Snakemake workflow manager](https://snakemake.readthedocs.io/en/stable/)
+4. Pull the container for iSpy's backend "spyne" [Snakemake workflow manager](https://snakemake.readthedocs.io/en/stable/)
     ```bash
-    docker pull quay.io/nbx0_cdc/spyne:v1.1.1
+    docker pull quay.io/nbx0_cdc/spyne:v1.1.0
     ```
 5. Pull the container for iSpy
     ```bash
@@ -233,9 +233,9 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
     ```bash
     docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data --name dais-ribosome-1.2.1 -t -d public.ecr.aws/n3z8t4o2/dais-ribosome:1.2.1
     ```
-9. Build the Snakemake container
+9. Build the spyne container
     ```bash
-    docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data -v /var/run/docker.sock:/var/run/docker.sock --name spyne -t -d quay.io/nbx0_cdc/spyne:v1.1.1
+    docker run -v $(readlink -f ~/FLU_SC2_SEQUENCING):/data -v /var/run/docker.sock:/var/run/docker.sock --name spyne -t -d quay.io/nbx0_cdc/spyne:v1.1.0
     ```
 10. Build the iSpy container
     ```bash
