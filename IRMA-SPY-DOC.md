@@ -41,6 +41,9 @@
 
 4. Now, enter your `Barcode numbers`. Usually you will be running a simple range of barcode numbers, such as "1-24", but to allow for flexibilty, barcode numbers can be entered in a list combining both single numbers and number-ranges, such as "1-3,5,9,12-20". Now enter your `Sample ID`s. These can be copy and pasted from a column in an excel sheet. Sample names should only be numbers, letters, and underscores ("_"). **Do not use any other characters such as "-" or "/".** Next, select your `Sample Type`. Most of your sample's are test samples, so each row defaults to `test`, but select `- control` or `+ control` for your **negative** and **positive** controls respectively. Finally, select the `Barcode Expansion Pack` you have used during library preparation. CDC's laboratory protocol is currently using "EXP-NBD196".
 
+    - when running tiny_test_run_flu, enter barcode numbers `27,37,41` and make up sample names
+    - when running tiny_test_run_sc2, enter barcode numbers `2,3,5,8,28` and make up sample names
+
     ![alt text](./images/spy-fillSampleSheet.png)
 
 5. Click `SAVE SAMPLESHEET`. _If you need to edit the number of samples/barcodes in your samplesheet after saving, you must click_ `RESTART SAMPLESHEET FILLING` _before editing it._ You will now have to restart filling your samplesheet from the beginning!
