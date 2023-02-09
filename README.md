@@ -246,6 +246,9 @@ If using a Windows PC, you should have already installed WSL2, Docker Desktop, *
         - tiny_test_run_flu
         - tiny_test_run_sc2
     - move these folders into ~/FLU_SC2_SEQUENCING
+    - when you `Refresh Run Listing` in iSpy, you should now see these folders listed
+    - when running tiny_test_run_flu, enter barcode numbers `27,37,41` and make up sample names.
+    - when running tiny_test_run_sc2, enter barcode numbers `2,3,5,8,28` and make up sample names.
     
 You are now ready to run iSpy! You can open it from `Docker Desktop` by clicking on the `Containers` tab on the left sidebar and clicking the icon of the box with the arrow pointing to the top left. This will open iSpy into your default internet browser.
 ![alt text](./images/dockerdesktop_launch_irmaspy.png)
