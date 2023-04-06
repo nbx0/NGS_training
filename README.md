@@ -1,6 +1,6 @@
 ## We've moved!
 
-### Visit our new homepage at https://cdcgov.github.io/MIRA/
+### Visit our new homepage at [https://cdcgov.github.io/MIRA/](https://cdcgov.github.io/MIRA/)
 
 
 
